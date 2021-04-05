@@ -20,8 +20,8 @@ RSpec.describe "Search Index Page" do
       click_on 'Search For Members'
     end
 
-    xit "shows the total number of people who live in the fire nation" do
-
+    it "shows the total number of people who live in the fire nation" do
+      expect(page).to have_content("97 people live in the Fire Nation!")
     end
   end
 end
