@@ -3,7 +3,10 @@ class SearchController < ApplicationController
   def index
     affiliation = params[:nation].gsub(/_/, '+')
     per_page = 200
-    @info = make_api_call("characters?affiliation=#{affiliation}&perPage=#{per_page}")
+    info = make_api_call("characters?affiliation=#{affiliation}&perPage=#{per_page}")
+    @total_members = info.count
+    @members = info.first(25).map do |member|
+      OpenStruct.new({name: member[:name], allies: member[:allies], enemies: member[:enemies], affiliation: member[:affiliation], photo: member[:photoUrl]})
   end
 
   private
