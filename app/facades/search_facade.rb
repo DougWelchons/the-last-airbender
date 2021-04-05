@@ -1,0 +1,3 @@
+class SearchFacade
+
+end

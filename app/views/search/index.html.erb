@@ -2,8 +2,8 @@
 
 <div class="results">
   <% @members.each do |member| %>
-    <div class="result" id="<%= member.id %>">
-
+    <div class="result" id="<%= member.id %>" >
+      <img src="<%=member.photo%>" alt="No photo available for <%= member.name %>" >
       <p>
         Name: <%= member.name %><br>
         Affiliation: <%= member.affiliation %><br>
@@ -22,7 +22,7 @@
           <% end %>
         <% else %>
           None
-        <% end %><br>
+        <% end %><br><br><br>
       </p>
     </div>
   <% end %>
