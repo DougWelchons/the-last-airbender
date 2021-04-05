@@ -21,7 +21,7 @@ RSpec.describe "Search Index Page" do
     end
 
     it "shows the total number of people who live in the fire nation" do
-      expect(page).to have_content("97 people live in the Fire Nation!")
+      expect(page).to have_content("97 results found!")
     end
   end
 end
