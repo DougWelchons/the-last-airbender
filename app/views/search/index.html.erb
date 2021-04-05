@@ -1,0 +1,29 @@
+<h4><%= @total_members %> results found!</h4>
+
+<div class="results">
+  <% @members.each do |member| %>
+    <div class="result" id="<%= member.id %>" >
+      <img src="<%=member.photo%>" alt="No photo available for <%= member.name %>" >
+      <p>
+        Name: <%= member.name %><br>
+        Affiliation: <%= member.affiliation %><br>
+        Allies:
+        <% if member.allies.count > 0 %>
+          <% member.allies.each do |ally|%>
+            <%= ally %>
+          <% end %>
+        <% else %>
+          None
+        <% end %><br>
+        Enemies:
+        <% if member.enemies.count > 0 %>
+          <% member.enemies.each do |enemy|%>
+            <%= enemy %>
+          <% end %>
+        <% else %>
+          None
+        <% end %><br><br><br>
+      </p>
+    </div>
+  <% end %>
+</div>
