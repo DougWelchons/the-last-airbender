@@ -1,9 +1,9 @@
 class SearchController < ApplicationController
 
   def index
-    @affiliation = params[:nation].gsub(/_/, '+')
+    affiliation = params[:nation].gsub(/_/, '+')
     per_page = 200
-    @info = make_api_call("characters?affiliation=#{@affiliation}&perPage=#{per_page}")
+    @info = make_api_call("characters?affiliation=#{affiliation}&perPage=#{per_page}")
   end
 
   private

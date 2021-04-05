@@ -23,5 +23,17 @@ RSpec.describe "Search Index Page" do
     it "shows the total number of people who live in the fire nation" do
       expect(page).to have_content("97 results found!")
     end
+
+    it "shows details information for the first 25 results" do
+      within(".results") do
+        expect(page).to have_css('.result', count: 25)
+        within("#5cf5679a915ecad153ab68fd") do
+          expect(page).to have_content("Name: Chan (Fire Nation admiral)")
+          expect(page).to have_content("Allies: Ozai")
+          expect(page).to have_content("Enemies: Earth Kingdom")
+          expect(page).to have_content("Affiliation: Fire Nation Navy")
+        end
+      end
+    end
   end
 end
