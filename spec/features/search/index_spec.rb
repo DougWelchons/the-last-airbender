@@ -35,5 +35,14 @@ RSpec.describe "Search Index Page" do
         end
       end
     end
+
+    it "shows 'none' if a person does not have any allies or enemies" do
+      within(".results") do
+        within("#5cf5679a915ecad153ab691d") do
+          expect(page).to have_content("Allies: None")
+          expect(page).to have_content("Enemies: None")
+        end
+      end
+    end
   end
 end
